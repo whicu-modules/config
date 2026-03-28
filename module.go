@@ -12,7 +12,7 @@ func NewConfig[T any]() fx.Option {
 	return fx.Provide(Load[T])
 }
 
-func NewConfigWithDefault[T any](moduleName string, path string) fx.Option {
+func NewConfigWithDefault[T any](path string) fx.Option {
 	return fx.Provide(LoadWithDefault[T](path))
 }
 
