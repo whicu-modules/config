@@ -12,6 +12,10 @@ func NewConfig[T any]() fx.Option {
 	return fx.Provide(Load[T])
 }
 
+func NewConfigWithDefault[T any](moduleName string, path string) fx.Option {
+	return fx.Provide(LoadWithDefault[T](path))
+}
+
 func NewSubConfigModule[T any, S any](moduleName string) fx.Option {
 	return fx.Module(moduleName, fx.Provide(SubConfig[T, S]))
 }
